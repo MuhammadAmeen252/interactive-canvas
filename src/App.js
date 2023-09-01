@@ -49,8 +49,8 @@ function App() {
   
       for (const card of cards) {
         if (
-          card.position.x === newPosition.x &&
-          card.position.y === newPosition.y
+          card?.position.x === newPosition.x &&
+          card?.position.y === newPosition.y
         ) {
           newPosition.x += 10; // Offset to the right by 10 pixels
           newPosition.y += 10; // Offset down by 10 pixels
@@ -149,6 +149,7 @@ function App() {
 
   const deleteCard = (id) => {
     const newCards = cards.filter(card => card.id !== id);
+    canvases[currentCanvasIndex].cards = newCards;
     setCards(newCards);
   };
 
@@ -162,7 +163,9 @@ function App() {
       zIndex: newZIndex, // Assign the new zIndex to ensure the card is on top
       position: newPosition,
     };
-    setCards([...cards, newCard]);
+    const newCards = [...cards, newCard]
+    canvases[currentCanvasIndex].cards = newCards;
+    setCards(newCards);
   };
 
   return (
@@ -202,13 +205,14 @@ function App() {
           <Card
             key={card.id}
             id={card.id}
-            position={card.position}
+            position={card?.position}
             onDragStart={handleDragStart}
             onDelete={deleteCard}
             onDragStop={handleDragStop}
             onDuplicate={duplicateCard}
             zIndex={card.zIndex}
             title={card.title} // Pass the title here
+            canvasName={canvases[currentCanvasIndex].name}
           />
         ))}
       </div>
