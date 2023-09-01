@@ -39,7 +39,7 @@ const chartData = {
     }
   };
 
-  const Card = ({ id, title, position, onDragStart, onDragStop, onDelete, onDuplicate, zIndex }) => {
+  const Card = ({ id, title, position, onDragStart, onDragStop, onDelete, onDuplicate, zIndex,canvasName }) => {
     const [showCardOptions, setShowCardOptions] = useState(false);
     const [showSqlHelp, setShowSqlHelp] = useState(false);
 
@@ -316,8 +316,12 @@ const chartData = {
               zIndex: zIndex, // Using the zIndex prop here
             }}
           >
+            <div style={{display:'flex', flexDirection:'column'}}>
+              <h4>{canvasName}</h4>
+              <div>{title}</div>
+            </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>{title}</div>
+
             <div>
                 <button onClick={() => onDelete(id)}>Delete</button>
                 <button onClick={() => onDuplicate(id)}>Duplicate</button>
