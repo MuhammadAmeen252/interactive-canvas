@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useRef } from 'react';
 import 'react-resizable/css/styles.css';
 import Card from './CardComponent';

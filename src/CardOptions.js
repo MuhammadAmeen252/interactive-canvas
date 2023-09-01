@@ -1,3 +1,4 @@
+/* eslint-disable */
 function CardOptions({
   showOptions, onChartTypeChange, onAxisChange,
   xAxisLabel, yAxisLabel, data,

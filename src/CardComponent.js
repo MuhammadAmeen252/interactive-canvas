@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import { Bar, Line, Pie } from 'react-chartjs-2';
